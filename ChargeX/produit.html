@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produit - ChargeX</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        /* Ajoute un effet de loupe */
+        .zoom {
+            position: relative;
+        }
+        .zoom img {
+            width: 100%;
+            height: auto;
+        }
+        .zoom:hover {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ChargeX</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="product-page">
+        <h1>Mac Safe - Batterie Externe</h1>
+        <div class="product-gallery">
+            <!-- Galerie d'images -->
+            <div class="zoom">
+                <img src="image1.jpg" alt="Mac Safe Batterie" id="main-image">
+            </div>
+            <div class="image-thumbnails">
+                <img src="image1.jpg" alt="image1" onclick="changeImage('image1.jpg')">
+                <img src="image2.jpg" alt="image2" onclick="changeImage('image2.jpg')">
+                <img src="image3.jpg" alt="image3" onclick="changeImage('image3.jpg')">
+            </div>
+        </div>
+
+        <div class="product-description">
+            <h2>Description du Produit</h2>
+            <p id="product-description">Ici tu peux ajouter une description complète du produit. Explique pourquoi c’est génial, ses caractéristiques, etc.</p>
+        </div>
+
+        <div class="product-reviews">
+            <h2>Avis des clients</h2>
+            <!-- Système d'avis avec étoiles -->
+            <div class="stars">
+                <span class="star" onclick="setRating(1)">⭐</span>
+                <span class="star" onclick="setRating(2)">⭐</span>
+                <span class="star" onclick="setRating(3)">⭐</span>
+                <span class="star" onclick="setRating(4)">⭐</span>
+                <span class="star" onclick="setRating(5)">⭐</span>
+            </div>
+            <p id="rating">Note: 0/5</p>
+            <textarea id="review-text" placeholder="Laissez votre avis..."></textarea>
+            <button onclick="submitReview()">Soumettre l'avis</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ChargeX. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Change l'image principale de la galerie
+        function changeImage(image) {
+            document.getElementById('main-image').src = image;
+        }
+
+        // Système d'avis (étoiles)
+        let rating = 0;
+
+        function setRating(value) {
+            rating = value;
+            document.getElementById('rating').innerText = `Note: ${rating}/5`;
+        }
+
+        // Soumettre l'avis
+        function submitReview() {
+            const reviewText = document.getElementById('review-text').value;
+            if (reviewText && rating > 0) {
+                alert(`Merci pour votre avis! Note: ${rating}/5\nCommentaire: ${reviewText}`);
+            } else {
+                alert("Veuillez laisser un avis et une note.");
+            }
+        }
+    </script>
+</body>
+</html>

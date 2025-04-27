@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeX - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">ChargeX</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="products-container">
+        <div class="product" onclick="openModal('mac-safe')">
+            <img src="image1.jpg" alt="Mac Safe Batterie Externe">
+            <h3>Batterie Externe Mac Safe</h3>
+            <p>39,99€</p>
+        </div>
+        <div class="product" onclick="openModal('coque-mac-safe')">
+            <img src="coque.jpg" alt="Coque Mac Safe">
+            <h3>Coque Mac Safe</h3>
+            <p>20,00€</p>
+        </div>
+        <!-- Ajouter d'autres produits ici -->
+    </div>
+
+    <!-- Fenêtre modale -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1 id="modal-product-name">Nom du Produit</h1>
+            <div id="modal-images">
+                <!-- Galerie d'images ici -->
+                <img src="image1.jpg" alt="Produit Image" id="modal-main-image">
+            </div>
+            <div class="product-description">
+                <h2>Description</h2>
+                <p id="modal-description">Ici la description du produit...</p>
+            </div>
+            <div class="product-reviews">
+                <h2>Avis</h2>
+                <textarea placeholder="Laissez un avis"></textarea>
+                <button>Soumettre l'avis</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ChargeX. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Ouvrir la fenêtre modale
+        function openModal(product) {
+            document.getElementById('product-modal').style.display = "block";
+
+            // Modifier le contenu en fonction du produit
+            if (product === 'mac-safe') {
+                document.getElementById('modal-product-name').innerText = "Mac Safe - Batterie Externe";
+                document.getElementById('modal-description').innerText = "Batterie externe Mac Safe, idéale pour les appareils Apple.";
+                document.getElementById('modal-main-image').src = "image1.jpg";
+            }
+            else if (product === 'coque-mac-safe') {
+                document.getElementById('modal-product-name').innerText = "Coque Mac Safe";
+                document.getElementById('modal-description').innerText = "Coque Mac Safe pour une protection optimale.";
+                document.getElementById('modal-main-image').src = "coque.jpg";
+            }
+            // Ajoute d'autres conditions pour chaque produit
+        }
+
+        // Fermer la fenêtre modale
+        function closeModal() {
+            document.getElementById('product-modal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
